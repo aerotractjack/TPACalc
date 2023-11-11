@@ -109,6 +109,9 @@ class TPACalc:
         self.plot_acreage_trees(df, report_str)
         integration.set_val_tpa(client_id, project_id, stand_id, report['tpa'])
 
+def TPAReport(*args):
+    return TPACalc.TPAReport(*args)
+
 if __name__ == "__main__":
     import sys
     TPACalc.TPAReport(*sys.argv[1:4])

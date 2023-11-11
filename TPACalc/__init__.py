@@ -1,1 +1,1 @@
-from .calc import TPACalcLib as TPACalc
+from .calc import TPAReport as TPAReport

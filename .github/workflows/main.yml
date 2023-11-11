@@ -24,4 +24,5 @@ jobs:
 
       - name: Deploy to Sandra
         run: |
-          ssh -o PasswordAuthentication=no -p 1953 aerotract@67.210.192.18 "cd /home/aerotract/software/TPACalc; ./install.sh"
+          ssh -o PasswordAuthentication=no -p 1953 aerotract@67.210.192.18 "cd /home/aerotract/software/TPA/TPACalc; ./install.sh"
+          ssh -o PasswordAuthentication=no -p 1953 aerotract@67.210.192.18 "cd /home/aerotract/software/TPA/TPAService; ../../internal-tools/restart-service.sh TPAAPI.service"
