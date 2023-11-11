@@ -1,4 +1,5 @@
 import requests
+from pathlib import Path 
 
 storage_api_url = "http://192.168.1.35:7111"
 db_api_url = "http://192.168.1.35:5055"
@@ -38,6 +39,26 @@ def set_val_tpa(client_id, project_id, stand_id, tpa):
     if not req.status_code == 200:
         raise ValueError("API call failed: " + str(req.text))
     return True
+
+def get_tpa_paths(client_id, project_id, stand_id):
+    filetypes = ["tpa_rd_plot", "tpa_report"]
+    tpa_paths = {}
+    for filetype in filetypes:
+        body = {
+            "entry": {
+                "CLIENT_ID": client_id,
+                "PROJECT_ID": project_id,
+                "STAND_ID": stand_id
+            },
+            "filetype": filetype
+        }
+        req = requests.post(storage_api_url + "/filepath", json=body)
+        if not req.status_code == 200:
+            raise ValueError("API call failed: " + str(req.text))
+        ft = req.json()['filepath']
+        tpa_paths[filetype] = ft
+        Path(ft).parent.mkdir(parents=True, exist_ok=True)
+    return tpa_paths
 
 if __name__ == "__main__":
     import sys
