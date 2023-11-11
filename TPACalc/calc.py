@@ -6,7 +6,7 @@ import math
 import matplotlib.pyplot as plt
 from . import integration 
 
-class TPACalcLib:
+class TPACalc:
 
     def __init__(self, client_id, project_id, stand_id):
         ''' 

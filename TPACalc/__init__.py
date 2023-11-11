@@ -1,1 +1,1 @@
-from .calclib import TPACalcLib
+from .calc import TPACalcLib as TPACalc
