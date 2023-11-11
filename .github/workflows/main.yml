@@ -26,3 +26,9 @@ jobs:
         run: |
           ssh -o PasswordAuthentication=no -p 1953 aerotract@67.210.192.18 "cd /home/aerotract/software/TPA/TPACalc; ./install.sh"
           ssh -o PasswordAuthentication=no -p 1953 aerotract@67.210.192.18 "cd /home/aerotract/software/TPA/TPAService; ../../internal-tools/restart-service.sh TPAAPI.service"
+
+      - name: Deploy to Seth WS
+        run: |
+          ssh -o PasswordAuthentication=no -p 2599 aerotract@67.210.192.18 "mkdir -p /home/aerotract/software/TPA/TPACalc"
+          scp -o PasswordAuthentication=no -P 2599 -r ./* aerotract@67.210.192.18:/home/aerotract/software/TPA/TPACalc
+          ssh -o PasswordAuthentication=no -p 2599 aerotract@67.210.192.18 "cd /home/aerotract/software/TPA/TPACalc; chmod +x install.sh; ./install.sh"
