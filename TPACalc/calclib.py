@@ -6,7 +6,7 @@ import math
 import matplotlib.pyplot as plt
 from . import integration 
 
-class TPACalc:
+class TPACalcLib:
 
     def __init__(self, client_id, project_id, stand_id):
         ''' 
@@ -69,6 +69,7 @@ class TPACalc:
         return {"tpa": tpa, "confidence_interval": ci, "confidence_level": desired_confidence}
 
     def create_tpa_report(self, report):
+        # Construct and write out a TPA report
         tpa = round(report['tpa'], 2)
         ci = round(report['confidence_interval'], 2)
         cl = str(int(report['confidence_level']*100)) + "%"
@@ -78,6 +79,7 @@ class TPACalc:
         return report_str
 
     def plot_acreage_trees(self, df, tpa_report_str):
+        # For RD, plot the acreage and tree count for a set of val AOIs
         x = list(range(df.shape[0]))
         acreage_y = df['validated_acres']
         trees_y = df['trees']
