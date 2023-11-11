@@ -3,7 +3,7 @@ import pandas as pd
 from scipy.stats import norm
 import numpy as np
 import math
-import integration 
+from . import integration 
 
 class TPACalc:
 

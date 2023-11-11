@@ -24,10 +24,4 @@ jobs:
 
       - name: Deploy to Sandra
         run: |
-          ssh -o PasswordAuthentication=no -p 1953 aerotract@67.210.192.18 <<'EOF'
-            pushd /home/aerotract/software/TPACalc
-            rm -rf *.egg-info/ dist/ build/
-            /usr/bin/python3 setup.py sdist bdist_wheel
-            pip install --upgrade --force-reinstall dist/tpacalc-0.1-py3-none-any.whl
-            popd
-          EOF
+          ssh -o PasswordAuthentication=no -p 1953 aerotract@67.210.192.18 "./home/aerotract/software/TPACalc/install.sh"

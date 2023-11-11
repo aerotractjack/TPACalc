@@ -3,3 +3,6 @@
 *.tif*
 __pycache__/
 test_data
+build/
+dist/
+**/*.egg*
