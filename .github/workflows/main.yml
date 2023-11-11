@@ -21,6 +21,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa.pub
           ssh-keyscan -p 1953 -H 67.210.192.18 >> ~/.ssh/known_hosts
+          ssh-keyscan -p 2599 -H 67.210.192.18 >> ~/.ssh/known_hosts
 
       - name: Deploy to Sandra
         run: |
