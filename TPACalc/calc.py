@@ -90,6 +90,8 @@ class TPACalc:
         axs[1].set_title('Trees')
         axs[1].set_xlabel('Index')
         axs[1].set_ylabel('Trees')
+        axs[0].set_xticks(x)
+        axs[1].set_xticks(x)
         suptitle = f"{self.client_id}-{self.project_id}-{self.stand_id}: {tpa_report_str}"
         plt.suptitle(suptitle)
         plt.tight_layout()
